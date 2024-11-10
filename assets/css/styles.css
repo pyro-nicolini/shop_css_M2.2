@@ -21,7 +21,7 @@ body {
     font-size: var(--font-size-medium);
     background-color: var(--background-color-primary);
     color: var(--text-color-primary);
-    background-image: url('/assets/img/fondo.webp');
+    background-image: url('assets/img/fondo.webp');
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
