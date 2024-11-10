@@ -1,7 +1,7 @@
 // Configuración
 const imageCount = 14; // Número total de imágenes en la carpeta
 const listaProducto = document.getElementById("listaProducto");
-const filtroBtns = document.querySelectorAll(".filter-btn");
+const filtroBtns = document.querySelectorAll(".filtrador");
 
 // Función para crear un producto (tarjeta) en la lista
 function crearProductos(imgSrc, actividad, descripcion, dificultad) {

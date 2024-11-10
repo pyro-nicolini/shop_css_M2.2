@@ -1,129 +1,54 @@
 :root {
     /* Tamaños de letra */
-    --font-size-small: 12px;
-    --font-size-medium: 16px;
+    --small: 12px;
+    --mid: 16px;
     
     /* Colores de fondo */
-    --background-color-primary: #0076ec;
-    --background-color-accent: #3150ff;
+    --bgpri: #5a00ec;
+    --bgpri2: #380053;
+    --bgsec: #1738f6;
     
     /* Colores de texto */
-    --text-color-primary: #ffffff;
-    --text-color-secondary: #666666;
-    --text-color-accent: #ffffff;
+    --text1: #ffffff;
+    --text2: #150028;
+    --text3: #fff5d2;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "aside main main"
+        "footer footer footer";
+    grid-template-columns: 0.3fr 3fr;
+    grid-template-rows: 5rem 1fr auto;
+    height: 100vh;
 }
 
 body {
     top: 0;
     left: 0;
-    padding-top: 6rem;
     font-family: 'Poppins', sans-serif;
-    font-size: var(--font-size-medium);
-    background-color: var(--background-color-primary);
-    color: var(--text-color-primary);
-    background-image: url('assets/img/fondo.webp');
+    font-size: var(--mid);
+    color: var(--text1);
+    background-image: url("../img/fondo.webp");
+    background-color: var(--bgpri2);
     background-size: cover;
     background-attachment: fixed;
-    width: 100%;
-    height: 100%; /* Asegura que el body ocupe todo el alto */
-    margin: 0; /* Elimina los márgenes predeterminados */
-}
-
-main {
-    display: flex;
-}
-
-h1 {
-    font-size: clamp(1rem, 2vw, 2rem); /* Tamaño ajustable para h1 */
-    color: var(--text-color-accent);
-}
-
-h2 {
-    font-size: clamp(0.9rem, 0.7vw, 1rem); /* Tamaño ajustable para h2 */
-    color: var(--text-color-primary);
-}
-
-li {
-    list-style: none;
-}
-
-.filter-btn {
-    margin: 0.5rem auto;
-    color: var(--text-color-secondary);
-    border: none;
-    background-color: #ffffff;
-    border-radius: 8px;
-    display: block;
-}
-
-.dificultad.facil {
-    color: #ffffff; /* Verde para fácil */
-    background-color: #1e9e43;
-    padding: 3px 6px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.dificultad.medio {
-    color: #ffffff; /* Amarillo para medio */
-    background-color: #dca744;
-    padding: 3px 6px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.dificultad.dificil {
-    color: #ffffff; /* Rojo para difícil */
-    background-color: #ff4141;
-    padding: 3px 6px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-p {
-    font-size: var(--font-size-small);
-    color: var(--text-color-secondary);
+    margin: 0;
 }
 
 header {
-    position: fixed; /* Fija el header en la parte superior */
+    grid-area: header;
     display: flex;
     align-items: center;
     gap: 1rem;
     justify-content: center;
     top: 0;
     left: 0;
-    height: 5rem;
-    width: 100%;
-    background-color: var(--background-color-accent);
+    background-color: var(--bgsec);
     z-index: 1000;
-}
-
-aside {
-    position: fixed;
-    justify-content: center;
-    margin: 0.5rem 0;
-    height: 30rem;
-    background-color: var(--background-color-primary);
-    color: var(--text-color-primary);
-    text-align: center;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-    padding: 1rem;
-    width: 8rem;
-    transition: .5s ease-in-out;
-}
-
-aside:hover {
-    width: 10rem;
-}
-
-aside img {
-    height: 4rem;
-    object-fit: contain;
-    transform: rotate(-2deg);
-    animation: rotar5 10s ease-in-out infinite;
-    cursor: pointer;
+    box-shadow: 2px 2px 15px rgb(0, 0, 0, 0.7);
 }
 
 header img {
@@ -131,7 +56,102 @@ header img {
     object-fit: contain;
     animation: rotar5 5s ease-in-out infinite;
     cursor: pointer;
+    filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.5));
 }
+
+aside {
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60vh;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    background-color: var(--bgpri);
+    color: var(--text1);
+    text-align: center;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    transition: .5s ease-in-out;
+    box-shadow: 2px 2px 15px rgb(0, 0, 0, 0.7);
+}
+
+aside img {
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.5));
+    height: 4rem;
+    object-fit: contain;
+    transform: rotate(-2deg);
+    animation: rotar5 10s ease-in-out infinite;
+    cursor: pointer;
+}
+
+main {
+    padding: 1rem 0;
+    grid-area: main;
+    padding: 0 auto;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #1e9e43;
+    text-align: center;
+}
+
+footer p {
+    color: var(--text3);
+    font-weight: 400;
+    font-size: var(--mid);
+}
+
+h1 {
+    font-size: clamp(1rem, 2vw, 2rem);
+    color: var(--text3);
+}
+
+h2 {
+    font-size: clamp(0.9rem, 0.7vw, 1rem);
+    color: var(--text1);
+}
+
+p {
+    font-size: var(--small);
+    color: var(--text2);
+}
+
+.filtrador {
+    padding: 0.4rem 0.5rem;
+    width: 6rem;
+    color: var(--text2);
+    border: none;
+    border-radius: 8px;
+    display: block;
+}
+
+.todo {
+    color: var(--text1);
+    background-color: #ff6601;
+}
+.easy, .dificultad.facil {
+    color: var(--text1);
+    background-color: #1e9e43;
+}
+.mid, .dificultad.medio {
+    background-color: #dca744;
+    color: var(--text1);
+}
+.hard, .dificultad.dificil {
+    background-color: #ff4141;
+    color: var(--text1);
+}
+
+.dificultad.facil, .dificultad.medio, .dificultad.dificil  {
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
 
 @keyframes rotar5 {
     0% { transform: rotate(0deg); }
@@ -140,28 +160,20 @@ header img {
     100% { transform: rotate(0deg); }
 }
 
-.shop {
-    margin-left: 12rem;
-    width: 100rem;
-    padding: 0 auto;
-}
 
 #listaProducto {
-    height: calc(max-content-height);
+    height: max-content;
     align-items: center;
     justify-content: space-evenly;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, auto));
 }
 
 .item {
     box-shadow: 2px 2px 15px rgb(0, 0, 0, 0.7);
-    width: 10rem;
     height: auto;
     padding: 0.5rem;
     border-radius: 5px;
-    overflow: hidden;
 }
 
 .pic {
@@ -186,11 +198,11 @@ header img {
     height: 20rem;
     margin: 10px;
     border: 1px solid #ccccccaf;
-    background-color: #fff7cd67;
+    background-color: #fff7cd89;
 }
 
 .text {
-    color: #000000;
+    color: var(--text2);
     padding: 10px;
 }
 

@@ -7,28 +7,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="gridContainer">
     <header>
         <h1>Los mejores panoramas con</h1>
         <img src="assets/img/logo.png" alt="logo de Splat">
     </header>
+    <aside>
+        <img src="assets/img/logo.png" alt="logo de Splat">
+        <h2>Filtrar Panoramas</h2>
+            <a class="filtrador todo" data-dificultad="todos">Todos (14)</a>
+            <a class="filtrador easy" data-dificultad="facil">Fácil (5)</a>
+            <a class="filtrador mid" data-dificultad="medio">Medio (5)</a>
+            <a class="filtrador hard" data-dificultad="dificil">Difícil (4)</a>
+    </aside>
     <main>
-        <aside>
-            <img src="assets/img/logo.png" alt="logo de Splat">
-            <h2>Panoramarizador</h2>
-            <div id="filtros">
-                <a class="filter-btn" data-dificultad="todos">Todos</a>
-                <a class="filter-btn" data-dificultad="facil">Fácil</a>
-                <a class="filter-btn" data-dificultad="medio">Medio</a>
-                <a class="filter-btn" data-dificultad="dificil">Difícil</a>
-              </div>
-        </aside>
-        <div class="shop">
-            
-            <div id="listaProducto"></div>
-        </div>
+        <div id="listaProducto"></div>
     </main>
-
+    <footer>
+        <p>&copy; 2024 Splat. Todos los derechos reservados.</p>
+    </footer>
     <script src="assets/js/scripts.js"></script>
 
 </body>
