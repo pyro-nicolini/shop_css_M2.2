@@ -1,95 +1,152 @@
+
+body {
+    top: 0;
+    left: 0;
+    padding-top: 5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--font-size-medium);
+    background-color: var(--background-color-primary);
+    color: var(--text-color-primary);
+    background-image: url('/assets/img/fondo.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%; /* Asegura que el body ocupe todo el alto */
+    margin: 0; /* Elimina los márgenes predeterminados */
+}
 :root {
     /* Tamaños de letra */
     --font-size-small: 12px;
     --font-size-medium: 16px;
     --font-size-large: 24px;
-    --font-size-title: 32px;
-  
+    --font-size-title: 40px;
+
     /* Colores de fondo */
-    --background-color-primary: #f5f5f5;
-    --background-color-secondary: #e0e0e0;
-    --background-color-accent: #ffcc00;
+    --background-color-primary: #ffebae;
+    --background-color-secondary: #e0e0e075;
+    --background-color-accent: #008cff;
     --background-color-dark: #333333;
     --background-color-light: #ffffff;
-  
+
     /* Colores de texto */
     --text-color-primary: #333333;
     --text-color-secondary: #666666;
-    --text-color-accent: #ff9900;
+    --text-color-accent: #ffffff;
     --text-color-light: #ffffff;
     --text-color-dark: #000000;
-  }
-  
-  /* Ejemplo de uso */
-  body {
+}
+
+main {
     display: flex;
-    font-family: 'Poppins', sans-serif;
-    font-size: var(--font-size-medium);
-    background-color: var(--background-color-primary);
-    color: var(--text-color-primary);
-  }
-  
-  h1 {
+    width: 100%;
+    height: 100%; /* Asegura que el main ocupe todo el alto disponible */
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
     font-size: var(--font-size-title);
     color: var(--text-color-accent);
-  }
+}
 
-  li {
+h2 {
+    font-size: var(--font-size-medium);
+    color: var(--text-color-primary);
+}
+
+li {
     list-style: none;
-  }
+}
 
-  a {
+a {
     color: var(--text-color-accent);
     text-decoration: none;
-  }
-  
-  p {
+}
+
+p {
     font-size: var(--font-size-small);
     color: var(--text-color-secondary);
-  }
+}
 
-  aside {
-    flex-basis: 15rem;
-    height: 100vh;
-  }
-
-  .shop {
-    flex: 1;
+header {
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    left: 0; /* Asegura que se quede alineado al lado izquierdo */
+    height: 4rem;
     width: 100%;
-  }
+    background-color: var(--background-color-accent);
+    z-index: 1000; /* Asegura que el header quede por encima de otros elementos */
+}
 
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  #listaProducto {
-    align-items: center;
-    background-color: #ffcc00;
-    display: grid;
-    margin: auto;
-    justify-content: space-evenly;
-    grid-template-columns: auto auto auto;
-    gap: 1rem; /* Espacio entre elementos */
-  }
-
-  .item {
-    background-color: #ffffff;
-    box-shadow: 2px 2px 15px rgb(158, 158, 158);
-    width: 20rem;
-    padding: 1rem;
+aside {
+    position: fixed;
+    justify-content: center;
+    margin: 0 1rem; /* El 20% del ancho de la pantalla */
+    height: 30rem; /* Ocupa toda la altura de la pantalla */
+    background-color: var(--background-color-primary);
+    color: var(--text-color-light);
+    text-align: center;
     border-radius: 5px;
-  }
+    padding: 1rem;
+}
 
-  .pic {
+.shop {
+    margin-left: 15rem;
+    width: 100rem;
+    padding: 0 auto; /* Asegura que el aside ocupe todo el ancho disponible */
+}
 
-  }
+/* Estilo para el contenedor de los productos */
+#listaProducto {
+    height: calc(max-content-height);
+    align-items: center;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, auto)); /* 3 columnas de igual tamaño */
+    gap: 1rem; /* Espacio entre elementos */
+}
 
-  .name {
+/* Estilo para las tarjetas (items) */
+.item {
+    box-shadow: 2px 2px 15px rgb(0, 0, 0, 0.7);
+    width: 10rem;
+    height: auto;
+    padding: 0.5rem;
+    border-radius: 5px;
+    overflow: hidden; /* Evita que el contenido se salga */
+}
+
+.pic {
+    width: 100%;
+    max-height: 10rem;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.pic:hover {
+    transition: transform 1s ease;
+}
+
+.item:hover {
+    transition: transform 0.5s ease;
+    transform: scale(1.05); /* Agrandar ligeramente la imagen */
+}
+
+.item {
+    transition: transform 1s ease;
+    width: 300px;
+    margin: 10px;
+    border: 1px solid #ccccccaf;
+    background-color: #fff7cdcc;
+}
+
+.text {
+    color: #000000;
+    padding: 10px;
+}
+
+.name {
     display: block;
-    font-weight: 700;
-  }
-
-
-  
+    font-weight: bold;
+}

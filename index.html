@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deporte Landia</title>
+    <title>Productos para Niños</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <aside>
-        <h2>Categorías</h2>
-        <ul>
-            <li><a href="#">Futbol</a></li>
-            <li><a href="#">Basketball</a></li>
-            <li><a href="#">Tenis</a></li>
-            <li><a href="#">Golf</a></li>
-            <li><a href="#">Rugby</a></li>
-        </ul>
-    </aside>
-    <section class="shop">
-        <div id="listaProducto">
+    <header>
+        <h1>Productos para Niños</h1>
+    </header>
+    <main>
+        <aside>
+            <h2>Productos para Niños</h2>
+            <input type="text" id="busqueda" placeholder="Buscar por nombre">
+        </aside>
+        <div class="shop">
+            <div id="listaProducto"></div> <!-- Aquí se inyectarán las tarjetas de productos -->
         </div>
-    </section>
-    
+    </main>
+
+    <script src="assets/js/scripts.js"></script>
+
 </body>
-<script src="assets/js/scripts.js"></script>
 </html>
