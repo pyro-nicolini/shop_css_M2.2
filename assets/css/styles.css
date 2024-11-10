@@ -1,8 +1,22 @@
+:root {
+    /* Tamaños de letra */
+    --font-size-small: 12px;
+    --font-size-medium: 16px;
+    
+    /* Colores de fondo */
+    --background-color-primary: #0076ec;
+    --background-color-accent: #3150ff;
+    
+    /* Colores de texto */
+    --text-color-primary: #ffffff;
+    --text-color-secondary: #666666;
+    --text-color-accent: #ffffff;
+}
 
 body {
     top: 0;
     left: 0;
-    padding-top: 5rem;
+    padding-top: 6rem;
     font-family: 'Poppins', sans-serif;
     font-size: var(--font-size-medium);
     background-color: var(--background-color-primary);
@@ -14,44 +28,18 @@ body {
     height: 100%; /* Asegura que el body ocupe todo el alto */
     margin: 0; /* Elimina los márgenes predeterminados */
 }
-:root {
-    /* Tamaños de letra */
-    --font-size-small: 12px;
-    --font-size-medium: 16px;
-    --font-size-large: 24px;
-    --font-size-title: 40px;
-
-    /* Colores de fondo */
-    --background-color-primary: #ffebae;
-    --background-color-secondary: #e0e0e075;
-    --background-color-accent: #008cff;
-    --background-color-dark: #333333;
-    --background-color-light: #ffffff;
-
-    /* Colores de texto */
-    --text-color-primary: #333333;
-    --text-color-secondary: #666666;
-    --text-color-accent: #ffffff;
-    --text-color-light: #ffffff;
-    --text-color-dark: #000000;
-}
 
 main {
     display: flex;
-    width: 100%;
-    height: 100%; /* Asegura que el main ocupe todo el alto disponible */
 }
 
 h1 {
-    margin: 0;
-    text-align: center;
-    justify-content: center;
-    font-size: var(--font-size-title);
+    font-size: clamp(1rem, 2vw, 2rem); /* Tamaño ajustable para h1 */
     color: var(--text-color-accent);
 }
 
 h2 {
-    font-size: var(--font-size-medium);
+    font-size: clamp(0.9rem, 0.7vw, 1rem); /* Tamaño ajustable para h2 */
     color: var(--text-color-primary);
 }
 
@@ -59,9 +47,37 @@ li {
     list-style: none;
 }
 
-a {
-    color: var(--text-color-accent);
-    text-decoration: none;
+.filter-btn {
+    margin: 0.5rem auto;
+    color: var(--text-color-secondary);
+    border: none;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: block;
+}
+
+.dificultad.facil {
+    color: #ffffff; /* Verde para fácil */
+    background-color: #1e9e43;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.dificultad.medio {
+    color: #ffffff; /* Amarillo para medio */
+    background-color: #dca744;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.dificultad.dificil {
+    color: #ffffff; /* Rojo para difícil */
+    background-color: #ff4141;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 p {
@@ -71,53 +87,85 @@ p {
 
 header {
     position: fixed; /* Fija el header en la parte superior */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
     top: 0;
-    left: 0; /* Asegura que se quede alineado al lado izquierdo */
-    height: 4rem;
+    left: 0;
+    height: 5rem;
     width: 100%;
     background-color: var(--background-color-accent);
-    z-index: 1000; /* Asegura que el header quede por encima de otros elementos */
+    z-index: 1000;
 }
 
 aside {
     position: fixed;
     justify-content: center;
-    margin: 0 1rem; /* El 20% del ancho de la pantalla */
-    height: 30rem; /* Ocupa toda la altura de la pantalla */
+    margin: 0.5rem 0;
+    height: 30rem;
     background-color: var(--background-color-primary);
-    color: var(--text-color-light);
+    color: var(--text-color-primary);
     text-align: center;
-    border-radius: 5px;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
     padding: 1rem;
+    width: 8rem;
+    transition: .5s ease-in-out;
+}
+
+aside:hover {
+    width: 10rem;
+}
+
+aside img {
+    height: 4rem;
+    object-fit: contain;
+    transform: rotate(-2deg);
+    animation: rotar5 10s ease-in-out infinite;
+    cursor: pointer;
+}
+
+header img {
+    height: 6rem;
+    object-fit: contain;
+    animation: rotar5 5s ease-in-out infinite;
+    cursor: pointer;
+}
+
+@keyframes rotar5 {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(10deg); }
+    70% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
 }
 
 .shop {
-    margin-left: 15rem;
+    margin-left: 12rem;
     width: 100rem;
-    padding: 0 auto; /* Asegura que el aside ocupe todo el ancho disponible */
+    padding: 0 auto;
 }
 
-/* Estilo para el contenedor de los productos */
 #listaProducto {
     height: calc(max-content-height);
     align-items: center;
     justify-content: space-evenly;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, auto)); /* 3 columnas de igual tamaño */
-    gap: 1rem; /* Espacio entre elementos */
+    grid-template-columns: repeat(auto-fit, minmax(20rem, auto));
+    gap: 1rem;
 }
 
-/* Estilo para las tarjetas (items) */
 .item {
     box-shadow: 2px 2px 15px rgb(0, 0, 0, 0.7);
     width: 10rem;
     height: auto;
     padding: 0.5rem;
     border-radius: 5px;
-    overflow: hidden; /* Evita que el contenido se salga */
+    overflow: hidden;
 }
 
 .pic {
+    margin: 0.5rem 0;
     width: 100%;
     max-height: 10rem;
     object-fit: cover;
@@ -129,16 +177,16 @@ aside {
 }
 
 .item:hover {
-    transition: transform 0.5s ease;
-    transform: scale(1.05); /* Agrandar ligeramente la imagen */
+    transform: scale(1.05);
 }
 
 .item {
     transition: transform 1s ease;
-    width: 300px;
+    width: 270px;
+    height: 20rem;
     margin: 10px;
     border: 1px solid #ccccccaf;
-    background-color: #fff7cdcc;
+    background-color: #fff7cd67;
 }
 
 .text {
