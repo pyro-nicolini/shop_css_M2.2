@@ -1,17 +1,9 @@
 :root {
-  /* Tamaños de letra */
   --small: 12px;
   --mid: 16px;
-
-  /* Colores de fondo */
   --bgpri: #5a00ec;
-  --bgpri2: #380053;
   --bgsec: #1738f6;
-
-  /* Colores de texto */
   --text1: #ffffff;
-  --text2: #150028;
-  --text3: #fff5d2;
 }
 
 body {
@@ -111,7 +103,7 @@ main {
 
 h1 {
   font-size: clamp(1rem, 2vw, 2rem);
-  color: var(--text3);
+  color: var(--text1);
 }
 
 h2 {
@@ -121,13 +113,13 @@ h2 {
 
 p {
   font-size: var(--small);
-  color: var(--text2);
+  color: var(--text1);
 }
 
 .filtrador {
   padding: 0.4rem 0.5rem;
   width: 6rem;
-  color: var(--text2);
+  color: var(--text1);
   border: none;
   border-radius: 8px;
   display: block;
@@ -135,7 +127,7 @@ p {
 }
 
 .dificultad {
-  text-align: end;
+  translate: -100 0;
 }
 
 .todo {
@@ -169,69 +161,91 @@ p {
 #listaProducto {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-    gap: 1rem;
+    gap: 2rem;
   }
   
   .card {
     display: flex;
     flex-direction: column;
-    align-items: end; /* Centra el contenido horizontalmente */
+    align-items: start; /* Centra el contenido horizontalmente */
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
-    transition: transform 1s ease;
+    transition: transform 0.3s ease;
     max-width: 100%; /* Asegura que la tarjeta no exceda el ancho de la columna */
     min-height: 300px; /* Ajusta según el contenido */
-    border: 1px solid #ccccccaf;
-    background-color: #fff7cd89;
+    border: 1px solid #cccccc70;
+    background-color: #ffffff2d;
     padding: 1rem;
   }
   
   
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.pic {
-  width: 100%;
-  height: 220px;
-  max-height: 10rem;
-  object-fit: cover;
-  margin-top: 1rem;
-}
-
-.pic:hover {
-  transition: transform 1s ease;
+  
+  .card:hover {
+    background-color: #ffffff49;
+    transform: scale(1.05);
+    
+  }
+  
+  .pic {
+    width: 100%;
+    height: 220px;
+    max-height: 10rem;
+    object-fit: cover;
+    margin: 0.5rem 0;
+    border: 1px solid #000000;
+    transition: transform 0.2s ease;
+  }
+  
+  .pic:hover {
 }
 
 .name {
   display: block;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
 .text {
-  color: var(--text2);
-  height: 6rem;
-  margin-bottom: 1rem;
+  color: var(--text1);
+  font-size: var(--mid);
+  height: 4rem;
+  margin-bottom: 2.5rem;
 }
 .price {
   color: var(--text1);
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  filter: drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
 
 .botoncito {
-  padding: 0.5rem 1rem;
-  background-color: #7900ca;
-  color: var(--text3);
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.5));
+  padding: 0.5rem .5rem;
+  background-color: #ca0043;
+  color: var(--text1);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.1s ease-in-out;
+  margin: 1rem 0;
+  font-size: var(--mid);
 }
 
 .botoncito:hover {
-  background-color: #c36aff;
+  transition: background-color 0.1s ease-in-out;
+  background-color: #9f00ad;
+}
+
+.divbtn {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 footer {
@@ -242,7 +256,7 @@ footer {
 }
 
 footer p {
-  color: var(--text3);
+  color: var(--text1);
   font-weight: 400;
   font-size: var(--mid);
 }

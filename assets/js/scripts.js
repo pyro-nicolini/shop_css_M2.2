@@ -20,12 +20,15 @@ function crearProductos(imgSrc, actividad, descripcion, dificultad) {
     const descProduct = document.createElement("div");
     descProduct.classList.add("text");
 
-    const actividadesSpan = document.createElement("span");
-    actividadesSpan.textContent = actividad;
-    actividadesSpan.classList.add("name");
+    const divbtn = document.createElement("div");
+    divbtn.classList.add("divbtn");
 
-    const precio = document.createElement("strong");
-    precio.innerText = "$15.000";
+    const name = document.createElement("span");
+    name.textContent = actividad;
+    name.classList.add("name");
+
+    const precio = document.createElement("span");
+    precio.innerText = "$15.000 / ticket";
     precio.classList.add("price");
 
     const descripSpan = document.createElement("span");
@@ -37,13 +40,14 @@ function crearProductos(imgSrc, actividad, descripcion, dificultad) {
     dificultadSpan.classList.add("dificultad", dificultad); // Agregar clase según la dificultad
 
     // Agregar elementos a la tarjeta
+    cardProduct.appendChild(name);
     cardProduct.appendChild(dificultadSpan);
     cardProduct.appendChild(img);
-    cardProduct.appendChild(precio);
-    descProduct.appendChild(actividadesSpan);
     descProduct.appendChild(descripSpan);
     cardProduct.appendChild(descProduct);
-    cardProduct.appendChild(botoncito);
+    divbtn.appendChild(precio);
+    divbtn.appendChild(botoncito);
+    cardProduct.appendChild(divbtn);
 
     return cardProduct;
 }
