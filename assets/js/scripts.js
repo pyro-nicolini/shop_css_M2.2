@@ -6,12 +6,16 @@ const filtroBtns = document.querySelectorAll(".filtrador");
 // Función para crear un producto (tarjeta) en la lista
 function crearProductos(imgSrc, actividad, descripcion, dificultad) {
     const cardProduct = document.createElement("div");
-    cardProduct.classList.add("item");
+    cardProduct.classList.add("card");
     cardProduct.setAttribute("data-dificultad", dificultad);
 
     const img = document.createElement("img");
     img.src = imgSrc;
     img.classList.add("pic");
+
+    const botoncito = document.createElement("button");
+    botoncito.classList.add("botoncito");
+    botoncito.innerText = "RESERVAR"
 
     const descProduct = document.createElement("div");
     descProduct.classList.add("text");
@@ -19,6 +23,10 @@ function crearProductos(imgSrc, actividad, descripcion, dificultad) {
     const actividadesSpan = document.createElement("span");
     actividadesSpan.textContent = actividad;
     actividadesSpan.classList.add("name");
+
+    const precio = document.createElement("strong");
+    precio.innerText = "$15.000";
+    precio.classList.add("price");
 
     const descripSpan = document.createElement("span");
     descripSpan.textContent = descripcion;
@@ -31,9 +39,11 @@ function crearProductos(imgSrc, actividad, descripcion, dificultad) {
     // Agregar elementos a la tarjeta
     cardProduct.appendChild(dificultadSpan);
     cardProduct.appendChild(img);
+    cardProduct.appendChild(precio);
     descProduct.appendChild(actividadesSpan);
     descProduct.appendChild(descripSpan);
     cardProduct.appendChild(descProduct);
+    cardProduct.appendChild(botoncito);
 
     return cardProduct;
 }
@@ -91,12 +101,12 @@ filtroBtns.forEach((btn) => {
         const dificultadSeleccionada = btn.getAttribute("data-dificultad");
 
         // Mostrar todas las tarjetas si se selecciona "todos"
-        document.querySelectorAll(".item").forEach((item) => {
-            const dificultad = item.getAttribute("data-dificultad");
+        document.querySelectorAll(".card").forEach((card) => {
+            const dificultad = card.getAttribute("data-dificultad");
             if (dificultadSeleccionada === "todos" || dificultad === dificultadSeleccionada) {
-                item.style.display = "block"; // Mostrar el producto
+                card.style.display = "block"; // Mostrar el producto
             } else {
-                item.style.display = "none"; // Ocultar el producto
+                card.style.display = "none"; // Ocultar el producto
             }
         });
     });
