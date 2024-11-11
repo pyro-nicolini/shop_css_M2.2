@@ -104,7 +104,7 @@ filtroBtns.forEach((btn) => {
         document.querySelectorAll(".card").forEach((card) => {
             const dificultad = card.getAttribute("data-dificultad");
             if (dificultadSeleccionada === "todos" || dificultad === dificultadSeleccionada) {
-                card.style.display = "block"; // Mostrar el producto
+                card.style.display = "flex"; // Mostrar el producto
             } else {
                 card.style.display = "none"; // Ocultar el producto
             }
