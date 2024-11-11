@@ -1,7 +1,7 @@
 
 
 # Responsive Grid Layout with Product Cards
-[Tiendita css grid "servicios"](https://pyro-nicolini.github.io/shop_css_M2.2/)
+[Tiendita css grid "servicios"](https://pyro-nicolini.github.io/shop_css_m2.2/)
 
 ### Project Description
 
